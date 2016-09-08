@@ -1,12 +1,10 @@
-*{ margin:0; padding:0;}
-body {
-
-background: #BE93C5; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #BE93C5 , #7BC6CC); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #BE93C5 , #7BC6CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
+*{ margin:0; padding:0; }
+body { background: #BE93C5; background: -webkit-linear-gradient(to left, #BE93C5 , #7BC6CC); background: linear-gradient(to left, #BE93C5 , #7BC6CC); overflow: scroll;}
 
 .main-menu li { font-size: 16px; }
 .project-brand { font-size: 18px; }
 
-.main-block { color:#777; width: 55%; margin: auto; background-color: rgba(255,255,255,0.7); border-radius: 3px; overflow: hidden;}
+.main-block { color:#777; width: 55%; margin: auto; background-color: rgba(255,255,255,1); border-radius: 3px; overflow: hidden; padding: 5px;}
+.main-block h2 { text-align: center; margin-bottom: 20px;}
+.main-block .row { margin-bottom: 50px;}
+.graph { height: 300px;}
