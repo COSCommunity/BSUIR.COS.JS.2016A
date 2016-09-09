@@ -4,7 +4,17 @@ body { background: #BE93C5; background: -webkit-linear-gradient(to left, #BE93C5
 .main-menu li { font-size: 16px; }
 .project-brand { font-size: 18px; }
 
-.main-block { color:#777; width: 55%; margin: auto; background-color: rgba(255,255,255,1); border-radius: 3px; overflow: hidden; padding: 5px;}
+.main-block { color:#777; width: 55%; margin: auto; background-color: rgba(255,255,255,1); border-radius: 3px; overflow: hidden; padding: 5px; padding-bottom: 20px; }
 .main-block h2 { text-align: center; margin-bottom: 20px;}
-.main-block .row { margin-bottom: 50px;}
+.tabs-info .row { margin-top: 20px; }
 .graph { height: 300px;}
+
+.submit-button{ width: 60%; margin: auto; display: block; margin-top: 10px; }
+
+/* helpers */
+
+.margin-top50{ margin-top: 50px; }
+.margin-bottom50{ margin-bottom: 50px; }
+
+.margin-bottom10{ margin-bottom: 10px; }
+.margin-top10{margin-top: 10px;}
