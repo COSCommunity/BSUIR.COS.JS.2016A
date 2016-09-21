@@ -108,7 +108,15 @@ window.onload = function() {
         clearGraph();
         var dataPointsArray = [];
         for (var i = 0; i < $fields_first_3_fi.length; i++) {
-            dataPointsArray[i] = calculateFunction2($field_first_3_A.val(), $($fields_first_3_fi[i]).val(), $field_first_2c_f.val());
+            var result = {};
+            var text = $($fields_first_3_fi[i]).val();
+            dataPointsArray[i] = calculateFunction2($field_first_3_A.val(), text, $field_first_3_f.val());
+            result.dataPoints = dataPointsArray[i];
+            result.type = "spline";
+            result.lineDashType = "dash";
+            result.showInLegend = true;
+            result.name = text;
+            drawGraph(result, i + 1);
         }
         var dataPoints = [];
         for (var i = 0; i < N; i++) {
@@ -116,16 +124,13 @@ window.onload = function() {
             for (var j = 0; j < dataPointsArray.length; j++) {
                 sum += dataPointsArray[j][i].y;
             }
-            dataPoints[i] = {
-                x: i,
-                y: sum
-            };
+            dataPoints[i] = { x: i, y: sum };
         }
         var result = {};
         result.dataPoints = dataPoints;
         result.type = "spline";
         result.showInLegend = true;
-        result.name = "Polygarmonic_function";
-        drawGraph(result, 1);
+        result.name = "Function";
+        drawGraph(result, $fields_first_3_fi.length + 1);
     });
 }
