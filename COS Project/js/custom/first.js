@@ -19,14 +19,14 @@ window.onload = function() {
     var $field_first_3_A = $("#first-3-A");
     var $field_first_3_f = $("#first-3-f");
     var $first_3_button = $("#first-3-button");
-	
-	var $field_first_4_fi = $('#first-4-fi');
+
+    var $field_first_4_fi = $('#first-4-fi');
     var $field_first_4_A = $("#first-4-A");
     var $field_first_4_f = $("#first-4-f");
-	var $field_first_4_fi_koef = $('#first-4-fi-koef');
+    var $field_first_4_fi_koef = $('#first-4-fi-koef');
     var $field_first_4_A_koef = $("#first-4-A-koef");
     var $field_first_4_f_koef = $("#first-4-f-koef");
-	var $field_first_4_random_koef = $("#first-4-random-koef");
+    var $field_first_4_random_koef = $("#first-4-random-koef");
     var $first_4_button = $("#first-4-button");
 
     var chart = new CanvasJS.Chart("first-work", {
@@ -142,59 +142,58 @@ window.onload = function() {
         result.name = "Function";
         drawGraph(result, $fields_first_3_fi.length + 1);
     });
-	
-	function calculateUnlinearFunction(A,fi,f,A_koef,fi_koef,f_koef){
-		var result = [];
-		var period = N/fi;
-		var n_fi_koef = ((fi*fi_koef)-fi)/period;
-		var n_f_koef = ((f*f_koef)-f)/period;
-		var n_A_koef = ((A*A_koef)-A)/period;
-		var nextN = period;
+
+    function calculateUnlinearFunction(A, fi, f, A_koef, fi_koef, f_koef) {
+        var result = [];
+        var period = N / fi;
+        var n_fi_koef = ((fi * fi_koef) - fi) / period;
+        var n_f_koef = ((f * f_koef) - f) / period;
+        var n_A_koef = ((A * A_koef) - A) / period;
+        var nextN = period;
         for (var n = 0; n < N; n++) {
             result[n] = {};
             result[n].x = n;
-            result[n].y = A * Math.sin(((2 * Math.PI * f * n) / N) + fi * Math.PI);		
-			
-			A = A+n_A_koef
-			f = f+n_f_koef;
-			fi = fi+n_fi_koef;
-				
-			period = N/fi;
-			n_fi_koef = ((fi*fi_koef)-fi)/period;
-			n_f_koef = ((f*f_koef)-f)/period;
-			n_A_koef = ((A*A_koef)-A)/period;
+            result[n].y = A * Math.sin(((2 * Math.PI * f * n) / N) + fi * Math.PI);
+
+            A = A + n_A_koef
+            f = f + n_f_koef;
+            fi = fi + n_fi_koef;
+
+            period = N / fi;
+            n_fi_koef = ((fi * fi_koef) - fi) / period;
+            n_f_koef = ((f * f_koef) - f) / period;
+            n_A_koef = ((A * A_koef) - A) / period;
         }
         return result;
-	}
-	
-	$first_4_button.click(function() {
-		clearGraph();
-		var koefArray=[];
-		koefArray[0]={
-			A:+$field_first_4_A.val(),
-			f:+$field_first_4_f.val(),
-			fi:+$field_first_4_fi.val()
-		};
-		var functionCount = 5;
-		var koefForKoef = $field_first_4_random_koef.val();
-		for(var i=1;i<functionCount;i++){
-			koefArray[i]={
-				A: koefArray[0].A*random(koefArray[0].A/koefForKoef,koefArray[0].A*koefForKoef),
-				f: koefArray[0].f*random(koefArray[0].f/koefForKoef,koefArray[0].f*koefForKoef),
-				fi:koefArray[0].fi*random(koefArray[0].fi/koefForKoef,koefArray[0].fi*koefForKoef)
-			};
-		}
-		var dataPointsArray = [];
+    }
+
+    $first_4_button.click(function() {
+        clearGraph();
+        var koefArray = [];
+        koefArray[0] = {
+            A: +$field_first_4_A.val(),
+            f: +$field_first_4_f.val(),
+            fi: +$field_first_4_fi.val()
+        };
+        var functionCount = 5;
+        var koefForKoef = $field_first_4_random_koef.val();
+        for (var i = 1; i < functionCount; i++) {
+            koefArray[i] = {
+                A: koefArray[0].A * random(koefArray[0].A / koefForKoef, koefArray[0].A * koefForKoef),
+                f: koefArray[0].f * random(koefArray[0].f / koefForKoef, koefArray[0].f * koefForKoef),
+                fi: koefArray[0].fi * random(koefArray[0].fi / koefForKoef, koefArray[0].fi * koefForKoef)
+            };
+        }
+        var dataPointsArray = [];
         for (var i = 0; i < functionCount; i++) {
             var result = {};
-            var text = i+1;
-            dataPointsArray[i] = calculateUnlinearFunction(koefArray[i].A, koefArray[i].fi, koefArray[i].f,
-				+$field_first_4_A_koef.val(),+$field_first_4_fi_koef.val(),+$field_first_4_f_koef.val());
+            var text = i + 1;
+            dataPointsArray[i] = calculateUnlinearFunction(koefArray[i].A, koefArray[i].fi, koefArray[i].f, +$field_first_4_A_koef.val(), +$field_first_4_fi_koef.val(), +$field_first_4_f_koef.val());
             result.dataPoints = dataPointsArray[i];
             result.type = "spline";
             result.lineDashType = "dash";
             result.showInLegend = true;
-            result.name = text+"";
+            result.name = text + "";
             drawGraph(result, i + 1);
         }
         var dataPoints = [];
@@ -211,9 +210,9 @@ window.onload = function() {
         result.showInLegend = true;
         result.name = "Function";
         drawGraph(result, functionCount + 1);
-	});
-	
-	function random(min, max){
-		return (Math.random() * max) + min;
-	}
+    });
+
+    function random(min, max) {
+        return (Math.random() * max) + min;
+    }
 }

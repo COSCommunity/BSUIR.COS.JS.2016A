@@ -17,19 +17,17 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <ul class="nav navbar-nav navbar-middle main-menu">
-                <li><a class="navbar-brand project-brand" href="javascript:void(0)">Project Community</a></li>
-                <li><a href="#">First</a></li>
-                <li><a href="#">Second</a></li>
-                <li><a href="#">Third</a></li>
-                <li><a href="#">Fourth</a></li>
-            </ul>
-        </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav navbar-middle main-menu">
+            <li><a class="navbar-brand project-brand" href="javascript:void(0)">Project Community</a></li>
+            <li><a href="#">First</a></li>
+            <li><a href="#second-page">Second</a></li>
+            <li><a href="#third-page">Third</a></li>
+            <li><a href="#fourth-page">Fourth</a></li>
+        </ul>
     </nav>
     <div class="main-block">
-        <div class="container-fluid">
+        <div class="container-fluid" id="first-page">
             <h2>Моделирование цифровых сигналов.</h2>
             <div class="row">
                 <div class="col-md-7">
@@ -232,18 +230,18 @@
                         </div>
 
                         <div class="tab-pane fade" id="five">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="input-group">
-										<input type="text" id="first-4-fi" class="form-control" placeholder="φ" aria-describedby="basic-addon1">
-										<span class="input-group-addon" id="basic-addon1">π</span>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<input type="text" id="first-4-fi-koef" class="form-control" placeholder="koef φ" aria-describedby="basic-addon1">
-								</div>
-							</div>
-							<div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="text" id="first-4-fi" class="form-control" placeholder="φ" aria-describedby="basic-addon1">
+                                        <span class="input-group-addon" id="basic-addon1">π</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="first-4-fi-koef" class="form-control" placeholder="koef φ" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" id="first-4-f" class="form-control" placeholder="f" aria-describedby="basic-addon1">
                                 </div>
@@ -257,9 +255,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="text" id="first-4-A-koef" class="form-control" placeholder="koef A" aria-describedby="basic-addon1">
-								</div>
+                                </div>
                             </div>
-							<div class="row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" id="first-4-random-koef" class="form-control" placeholder="random koef" aria-describedby="basic-addon1">
                                 </div>
@@ -268,7 +266,7 @@
                             <div class=" row ">
                                 <button type="button " id="first-4-button" class="btn btn-success submit-button ">Start</button>
                             </div>
-						</div>
+                        </div>
                     </div>
                 </div>
             </div>
